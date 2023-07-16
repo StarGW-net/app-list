@@ -1,0 +1,7 @@
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+
+    // <cache-path name="my_files1" path="."/> // matches nothing in the code!!
+    <cache-path name="my_files2" path="temp/"/> // must match dir
+    // <cache-path name="my_files3" path="cache/temp"/>
+    // <cache-path name="my_files4" path="wibble"/>
+</paths>

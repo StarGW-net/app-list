@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".ActivityMain">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/action_user"
+            android:title="User Apps"
+            android:orderInCategory="100"  />
+        <item android:id="@+id/action_system"
+            android:title="System Apps"
+            android:orderInCategory="100" />
+    </group>
+    <item android:id="@+id/action_refresh"
+        android:title="Refresh Apps"
+        android:orderInCategory="100" />
+    <item android:id="@+id/action_export"
+        android:title="Export Apps"
+        android:orderInCategory="100" />
+    <item android:id="@+id/action_help"
+        android:title="Help"
+        android:orderInCategory="100" />
+</menu>

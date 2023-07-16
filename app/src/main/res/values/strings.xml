@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">App List</string>
+
+    <string name="string36">This will save all apps to storage. Depending on the number of apps it may take a while.\n\nProceed?</string>
+    <string name="string37">Backup All User Apps</string>
+    <string name="fileFormat">yyyy-MM-dd</string>
+</resources>

@@ -1,0 +1,7 @@
+/app/build
+/app/release
+/app/debug
+/build
+/.gradle
+/.idea
+/GRAPHICS
