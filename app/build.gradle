@@ -8,8 +8,8 @@ android {
         applicationId "net.stargw.applist"
         minSdkVersion 24
         targetSdkVersion 29
-        versionCode 10
-        versionName "10"
+        versionCode 12
+        versionName "12"
     }
     buildTypes {
         release {
@@ -19,14 +19,30 @@ android {
     }
     namespace 'net.stargw.applist'
     applicationVariants.all { variant ->
-        variant.outputs.all {
-            outputFileName = "${applicationId}-${variant.buildType.name}-v${defaultConfig.versionName}.apk"
+        variant.outputs.all { output ->
+            outputFileName = "${applicationId}-${variant.buildType.name}.apk"
+            Task swTask = project.task("zzz${variant.name}", type: Copy) {
+                from output.outputFile.getParent()
+                into file("steve")
+                include output.outputFileName
+                rename(output.outputFileName, "${applicationId}-${variant.buildType.name}-v${defaultConfig.versionName}.apk")
+
+            }
+            variant.assemble.finalizedBy(swTask)
         }
+
+
     }
+
+
 }
+
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
     implementation 'com.google.android.material:material:1.0.0'
 }
+
+
