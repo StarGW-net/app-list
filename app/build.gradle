@@ -30,8 +30,6 @@ android {
             }
             variant.assemble.finalizedBy(swTask)
         }
-
-
     }
 
 

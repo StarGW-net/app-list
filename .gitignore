@@ -6,3 +6,5 @@
 /.gradle
 /.idea
 /GRAPHICS
+/local.properties
+*.iml
