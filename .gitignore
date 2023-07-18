@@ -1,4 +1,5 @@
 /app/build
+/app/release
 /app/apks/*.apk
 /app/debug
 /build
