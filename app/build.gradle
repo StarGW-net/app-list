@@ -8,8 +8,8 @@ android {
         applicationId "net.stargw.applist"
         minSdkVersion 24
         targetSdkVersion 29
-        versionCode 12
-        versionName "12"
+        versionCode 14
+        versionName "14"
     }
     buildTypes {
         release {
@@ -20,12 +20,13 @@ android {
     namespace 'net.stargw.applist'
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
-            outputFileName = "${applicationId}-${variant.buildType.name}.apk"
+            outputFileName = "${applicationId}-${variant.buildType.name}-v${defaultConfig.versionName}.apk"
             Task swTask = project.task("zzz${variant.name}", type: Copy) {
                 from output.outputFile.getParent()
-                into file("steve")
+                into file("apks")
                 include output.outputFileName
-                rename(output.outputFileName, "${applicationId}-${variant.buildType.name}-v${defaultConfig.versionName}.apk")
+                // rename(output.outputFileName, "${applicationId}-${variant.buildType.name}-v${defaultConfig.versionName}.apk")
+                rename(output.outputFileName,output.outputFileName);
 
             }
             variant.assemble.finalizedBy(swTask)

@@ -11,9 +11,9 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 12,
-      "versionName": "12",
-      "outputFile": "net.stargw.applist-release.apk"
+      "versionCode": 14,
+      "versionName": "14",
+      "outputFile": "net.stargw.applist-release-v14.apk"
     }
   ],
   "elementType": "File"
