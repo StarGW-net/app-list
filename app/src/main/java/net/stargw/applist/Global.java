@@ -55,9 +55,9 @@ public class Global extends Application {
 	static boolean packageDone = false;
 	static int packageMax = 0;
 
-	static final String APPSLOADED_INTENT = "net.stargw.log.intent.action.APPSLOADED";
-	static final String APPSLOADING_INTENT = "net.stargw.log.intent.action.APPSLOADING";
-	static final String TOAST_INTENT = "net.stargw.log.intent.action.TOAST";
+	static final String APPSLOADED_INTENT = "net.stargw.applist.intent.action.APPSLOADED";
+	static final String APPSLOADING_INTENT = "net.stargw.applist.intent.action.APPSLOADING";
+	static final String TOAST_INTENT = "net.stargw.applist.intent.action.TOAST";
 
 	public static Context getContext() {
 		return mContext;

@@ -9,66 +9,66 @@
     android:orientation="vertical">
 
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingLeft="5dp"
-        android:paddingBottom="10dp"
         android:paddingTop="10dp"
-        android:orientation="horizontal">
+        android:paddingBottom="10dp">
 
-        <TextView android:id="@+id/activity_main_title"
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="false"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/box" />
+
+        <TextView
+            android:id="@+id/activity_main_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
+            android:layout_toLeftOf="@+id/buttons"
+            android:layout_toRightOf="@+id/icon"
+            android:gravity="left|center_vertical"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="Contacts"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Heading"
-            android:gravity="right"
-            android:textStyle="bold"  />
-
-
+            android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/buttons"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
 
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginRight="0dp"
-                android:layout_gravity="bottom|right">
-                >
-
-
-                <ImageView
-                    android:id="@+id/activity_main_filter_icon"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_gravity="bottom|right"
-                    android:layout_marginRight="4dp"
-                    android:src="@drawable/ic_menu_search2" />
-
-                <ImageView
-                    android:id="@+id/activity_main_options"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_gravity="bottom|right"
-                    android:layout_marginRight="10dp"
-                    android:src="@drawable/ic_menu_view1" />
-
-            </LinearLayout>
-
-
-
+            <ImageView
+                android:id="@+id/activity_main_filter_icon"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/ic_menu_search2" />
+                
+            <ImageView
+                android:id="@+id/activity_main_options"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginRight="4dp"
+                android:src="@drawable/ic_menu_view1" />
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
     <View
