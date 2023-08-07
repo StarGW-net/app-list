@@ -1,4 +1,4 @@
-A free simple app to list all APKs:
+A free simple app to list all Apps:
 
 • Friendly app name
 • FQDN app names
@@ -6,7 +6,4 @@ A free simple app to list all APKs:
 • System Apps
 • Export as a CSV
 
-Version 10
-==========
-First Fdroid Vesion
 
