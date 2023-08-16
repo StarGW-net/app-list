@@ -13,6 +13,7 @@ A free simple app to list all APKs:
 <br>
 Buy Developer a Coffee:
 <br>
+
 [<img src="https://www.stargw.net/android/karma/images/coffee-buy2.png"
      alt="By Developer a Coffee"
      height="120">](https://www.stargw.net/money/?android)
