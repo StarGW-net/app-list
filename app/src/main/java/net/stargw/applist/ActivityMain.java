@@ -616,7 +616,7 @@ public class ActivityMain extends Activity {
         Global.myLog("SHARE PATH = " + f.toString(),3);
 
         // This provides a read only content:// for other apps
-        Uri uri2 = FileProvider.getUriForFile(myContext,"net.stargw.applistgi.fileprovider",f);
+        Uri uri2 = FileProvider.getUriForFile(myContext,"net.stargw.applist.fileprovider",f);
         Global.myLog("URI PATH = " + uri2.toString(),3);
 
         Intent intent2 = new Intent(Intent.ACTION_SEND);
