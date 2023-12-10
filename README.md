@@ -8,9 +8,8 @@ A free simple app to list all APKs:
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
      alt="Get it on F-Droid"
-     height="80">](https://www.stargw.net/android/)
+     height="80">](https://www.stargw.net/android/apks.html?net.stargw.applist)
     
-<br>
 Buy Developer a Coffee:
 <br>
 
