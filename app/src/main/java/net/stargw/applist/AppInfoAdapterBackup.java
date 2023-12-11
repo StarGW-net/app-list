@@ -4,6 +4,7 @@ import static android.content.Context.LAUNCHER_APPS_SERVICE;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.LauncherActivityInfo;
 import android.content.pm.LauncherApps;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
@@ -77,35 +78,10 @@ public class AppInfoAdapterBackup extends ArrayAdapter<AppInfo> {
         text1.setText(apps.name + " (" + apps.versionName + ")");
         text2.setText(apps.packageName);
 
-        /*
-        if (apps.icon == null)
+        if (apps.icon != null)
         {
-            List<LauncherActivityInfo> activityList = launcher.getActivityList(apps.packageName, android.os.Process.myUserHandle());
-            try {
-                apps.icon = activityList.get(0).getBadgedIcon(0);
-            } catch (Exception e) {
-                apps.icon = getContext().getResources().getDrawable(R.drawable.robot);
-                Global.myLog("Cannot get icon: " + apps.name, 3);
-            }
+            icon.setImageDrawable(apps.icon);
         }
-
-         */
-
-        // too slow ??
-        if (apps.icon == null) {
-            Global.myLog("GET icon:" + apps.name, 3);
-            try {
-                // app.icon = pManager.getApplicationIcon(app.packageName);
-                apps.icon = pManager.getApplicationIcon(apps.packageName);
-            } catch (Exception e) {
-                apps.icon = getContext().getResources().getDrawable(R.drawable.robot);
-                Global.myLog("Cannot get icon:" + apps.name, 3);
-            }
-        }
-
-        icon.setImageDrawable(apps.icon);
-
-        // icon.setImageBitmap(apps.icon);
 
         if (apps.enabled == false)
         {
@@ -113,6 +89,16 @@ public class AppInfoAdapterBackup extends ArrayAdapter<AppInfo> {
         } else {
             text1.setPaintFlags( text1.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
         }
+
+        text1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppInfo app = getItem(position);
+                Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                intent.setData(Uri.parse("package:" + app.packageName));
+                getContext().startActivity(intent);
+            }
+        });
 
         icon.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,0 +1,1 @@
+Click on text as well as icon now shows app details

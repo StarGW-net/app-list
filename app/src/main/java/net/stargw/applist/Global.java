@@ -17,6 +17,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.LauncherActivityInfo;
+import android.content.pm.LauncherApps;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
@@ -177,19 +179,19 @@ public class Global extends Application {
 
 		// drawable is not seralizable so cannot save it...
 
-/*
+
 		try {
-			// app.icon = pManager.getApplicationIcon(app.packageName);
+			app.icon = pManager.getApplicationIcon(app.packageName);
 			// app.icon = applicationInfo.loadIcon(pManager);
+/*
 			LauncherApps launcher = (LauncherApps) getContext().getSystemService(LAUNCHER_APPS_SERVICE);
 			List<LauncherActivityInfo> activityList = launcher.getActivityList(app.packageName, android.os.Process.myUserHandle());
 			app.icon = activityList.get(0).getBadgedIcon(0);
+ */
 		} catch (Exception e) {
 			app.icon = getContext().getResources().getDrawable(R.drawable.robot);
 			Global.myLog("Cannot get icon!", 3);
 		}
-*/
-		app.icon = null;
 
 		// build up a separate class object with the icons in - need to do on discover and load...
 		/*
@@ -263,6 +265,7 @@ public class Global extends Application {
 		}
 		return  apps;
 	}
+
 
 
 }
