@@ -22,7 +22,4 @@ Buy Developer a Coffee:
 [<img src="https://www.stargw.net/android/karma/images/coffee-buy2.png"
      alt="By Developer a Coffee"
      height="120">](https://www.stargw.net/dosh/donate.html?android)
-<<<<<<< HEAD
-=======
-     
->>>>>>> v16
+
