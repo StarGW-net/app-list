@@ -56,7 +56,7 @@ public class ActivityMain extends Activity {
 
     private static Context myContext;
 
-    private AppInfoAdapterBackup adapter;
+    private AppInfoAdapter adapter;
 
 
     //
@@ -176,7 +176,7 @@ public class ActivityMain extends Activity {
             }
         }
 
-        adapter = new AppInfoAdapterBackup(myContext, apps);
+        adapter = new AppInfoAdapter(myContext, apps);
         // adapter.updateFull();
         // notify?
         adapter.notifyDataSetChanged();
@@ -222,16 +222,6 @@ public class ActivityMain extends Activity {
     protected void onResume() {
         super.onResume();
 
-        // Set the NAV bar the same as the top status bar
-        /*
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            // getWindow().setNavigationBarColor(ContextCompat.getColor(myContext, 0xff000000));
-            getWindow().setNavigationBarColor(Color.BLUE);  // getWindow().getStatusBarColor()
-            // window.statusBarColor = Color.BLACK;
-        }
-        */
-
-        // Runs TWICE on startup. WHY? WHY? WHY?
         Global.myLog("App Resumed", 2);
 
         mReceiver = new BroadcastListener();
@@ -261,14 +251,7 @@ public class ActivityMain extends Activity {
         if ( appLoaded < 1) {
             Global.myLog("No apps loaded, so loading...",2);
             displayAppLoadDialog();
-            /*
-            if (appSave != appNew) {
-                displayAppLoadDialog();
-            } else {
-                Global.appList = Global.readAppDetails();
-                appRefresh();
-            }
-            */
+
         } else {
             Global.myLog("Apps loaded = " + appLoaded,2);
             if (appSave != appNew) {
@@ -276,26 +259,9 @@ public class ActivityMain extends Activity {
                 displayAppLoadDialog();
             } else {
                 Global.myLog("No new apps",2);
-                appRefresh();
+                // appRefresh();
             }
         }
-
-        /*
-        // Count packages - a quick and dirty way to see if there have been any changes
-        // Rather than using a package broadcast receiver
-        List<PackageInfo> packageInfoList = Global.getContext().getPackageManager().getInstalledPackages(0);
-        int packages = packageInfoList.size();
-
-        Global.myLog("Previous packages = " + Global.packageMax, 2);
-        Global.myLog("Current packages = " + packages, 2);
-
-        // App build list should be underway
-        if ( (Global.packageDone == false) || (Global.packageMax != packages) ) {
-            displayAppLoadDialog();
-        } else {
-            appRefresh();
-        }
-        */
 
     }
 
@@ -595,17 +561,7 @@ public class ActivityMain extends Activity {
         }
 
         launchApp("apps-" + humanDate + ".csv");
-        /*
-        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-        StrictMode.setVmPolicy(builder.build());
 
-        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-        sharingIntent.setType("text/csv");
-        // Uri bmpUri = Uri.fromFile(file);
-        Uri bmpUri = Uri.fromFile(file);
-        sharingIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
-        myContext.startActivity(Intent.createChooser(sharingIntent, "Share"));
-        */
     }
 
     private static void launchApp(String fn)

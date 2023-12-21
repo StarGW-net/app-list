@@ -2,9 +2,10 @@ package net.stargw.applist;
 
 import static android.content.Context.LAUNCHER_APPS_SERVICE;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.LauncherActivityInfo;
 import android.content.pm.LauncherApps;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
@@ -22,15 +23,18 @@ import java.util.ArrayList;
 /**
  * Created by swatts on 17/11/15.
  */
-public class AppInfoAdapterBackup extends ArrayAdapter<AppInfo> {
+public class AppInfoAdapter extends ArrayAdapter<AppInfo> {
 
     // private Context mContext;
     LauncherApps launcher = (LauncherApps) getContext().getSystemService(LAUNCHER_APPS_SERVICE);
 
     PackageManager pManager;
+    Context mContext;
 
-    public AppInfoAdapterBackup(Context context, ArrayList<AppInfo> apps) {
+    public AppInfoAdapter(Context context, ArrayList<AppInfo> apps) {
         super(context, 0, apps);
+
+        mContext = context;
 
         pManager = context.getPackageManager();
 
@@ -90,7 +94,7 @@ public class AppInfoAdapterBackup extends ArrayAdapter<AppInfo> {
             text1.setPaintFlags( text1.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
         }
 
-        text1.setOnClickListener(new View.OnClickListener() {
+        convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AppInfo app = getItem(position);
@@ -100,13 +104,14 @@ public class AppInfoAdapterBackup extends ArrayAdapter<AppInfo> {
             }
         });
 
-        icon.setOnClickListener(new View.OnClickListener() {
+        convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onLongClick(View v) {
                 AppInfo app = getItem(position);
-                Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                intent.setData(Uri.parse("package:" + app.packageName));
-                getContext().startActivity(intent);
+                ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Karma", app.packageName);
+                clipboard.setPrimaryClip(clip);
+                return true;
             }
         });
 
