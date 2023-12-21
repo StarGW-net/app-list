@@ -1,1 +1,1 @@
-• Long press on icon or app name and package name copied to clipboard
+• Long press on icon or app name to copy package name to clipboard
